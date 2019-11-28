@@ -12,16 +12,16 @@ int main()
 	int SeguirApostando, Apuesta, Aleatorio;
 	srand(time(NULL));
 
-	cout << "Bienvenido a mi casino.";
-	cout << "Introduce tu nombre: ";
+	cout << "Bienvenido a mi casino." << endl;
+	cout << "Introduce tu nombre: " << endl;
 	cin >> nombre;
-	cout << "Cual es tu saldo? ";
+	cout << "Cual es tu saldo? " << endl;
 	cin >> SaldoInicial;
 	SaldoActual = SaldoInicial;
 	
 	do
 	{
-		cout << "Cuanto deseas apostar? ";
+		cout << "Cuanto deseas apostar? " << endl;
 		cin >> Apuesta;
 		if (SaldoActual > Apuesta)
 		{
@@ -30,22 +30,28 @@ int main()
 			if (Aleatorio > 1)
 			{
 				//Gano
+				cout << "Felicidades, has ganado!" << endl;
+				SaldoActual = SaldoActual + Apuesta;
+				cout << "Tu saldo actual es: " << SaldoActual << endl;
+				//Seguimos en el vicio?
+				cout << "Deseas seguir apostando? 1 = Si / 2 = No" << endl;
+				cin >> SeguirApostando;
 			}
 			else
 			{
-				cout << "Has perdido tu apuesta";
+				cout << "Has perdido tu apuesta" << endl;
 				SaldoActual = SaldoActual - Apuesta;
+				cout << "Tu saldo Actual es: " << SaldoActual << endl;
+				//Seguimos en el vicio?
+				cout << "Deseas seguir apostando? 1 = Si / 2 = No" << endl;
+				cin >> SeguirApostando;
 			}
 		}
 		else
 		{
-			cout << "Saldo insuficiente.";
-			Apuesta = 2;
+			cout << "Saldo insuficiente." << endl;
+			SeguirApostando = 2;
+			break;
 		}
-	}
-	while (Apuesta = 2);
-	{
-
-	}
-
+	} while (SeguirApostando = 2);
 }
